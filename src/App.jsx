@@ -42,6 +42,12 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("gastos", JSON.stringify(gastos) ?? [])
+
+    if (filtro) {
+      const gastosFiltrados = gastos.filter(gasto => gasto.categoria === filtro)
+
+      setGastosFiltrados(gastosFiltrados)
+    }
   }, [gastos])
 
   useEffect(() => {
